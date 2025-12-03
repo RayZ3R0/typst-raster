@@ -4,6 +4,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml/badge.svg)](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml)
 
+<div align="center">
+  <img src="https://i.imgur.com/oHWvW1f.png" alt="typst-raster showcase" width="100%">
+  <p><i>This entire showcase was generated with Typst – <a href="https://github.com/RayZ3R0/typst-raster/blob/main/examples/side-by-side.ts">view the code</a></i></p>
+</div>
+
+---
+
 A fast, no-nonsense Node.js library for rendering Typst to PNG, JPEG, WebP, or PDF.
 
 It uses the official Typst compiler through native Rust bindings (`@myriaddreamin/typst-ts-node-compiler`) and Sharp for rasterization, so you get near-native performance with pixel-perfect results. I built it because I needed a reliable way to generate crisp math equations and document snippets in backend services and bots, and nothing else quite cut it.
