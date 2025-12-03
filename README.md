@@ -6,10 +6,10 @@
 
 A fast, no-nonsense Node.js library for rendering Typst to PNG, JPEG, or WebP images.
 
-It uses the official Typst compiler through native Rust bindings (`@myriaddreamin/typst-ts-node-compiler`) and Sharp for rasterization, so you get near-native performance with pixel-perfect results. I built it because I needed a reliable way to generate crisp math equations and document snippets in backend services and bots — and nothing else quite cut it.
+It uses the official Typst compiler through native Rust bindings (`@myriaddreamin/typst-ts-node-compiler`) and Sharp for rasterization, so you get near-native performance with pixel-perfect results. I built it because I needed a reliable way to generate crisp math equations and document snippets in backend services and bots, and nothing else quite cut it.
 
-Comes with New Computer Modern fonts bundled, works out of the box on Lambda, Vercel, Docker, or anywhere else — no system font dependencies.
-1
+Comes with New Computer Modern fonts bundled, works out of the box on Lambda, Vercel, Docker, or anywhere else, no system font dependencies required.
+
 ## Features
 
 - Native-speed compilation via direct Rust bindings  
