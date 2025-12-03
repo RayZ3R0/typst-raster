@@ -8,7 +8,7 @@ export interface RenderOptions {
      * Output format.
      * @default 'png'
      */
-    format?: 'png' | 'jpeg' | 'webp';
+    format?: 'png' | 'jpeg' | 'webp' | 'pdf';
 
     /**
      * Quality of the output image (1-100).

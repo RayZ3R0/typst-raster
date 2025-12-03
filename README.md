@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml/badge.svg)](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml)
 
-A fast, no-nonsense Node.js library for rendering Typst to PNG, JPEG, or WebP images.
+A fast, no-nonsense Node.js library for rendering Typst to PNG, JPEG, WebP, or PDF.
 
 It uses the official Typst compiler through native Rust bindings (`@myriaddreamin/typst-ts-node-compiler`) and Sharp for rasterization, so you get near-native performance with pixel-perfect results. I built it because I needed a reliable way to generate crisp math equations and document snippets in backend services and bots, and nothing else quite cut it.
 
@@ -91,6 +91,17 @@ const buffer = await renderer.render({
 });
 ```
 
+### Render to PDF
+
+```typescript
+const buffer = await renderer.render({
+  code: '= Document Title\n\nThis is a *PDF* document.',
+  format: 'pdf',
+});
+
+await writeFile('document.pdf', buffer);
+```
+
 ## API
 
 ```ts
@@ -106,13 +117,13 @@ renderer.render(options): Promise<Buffer>
 | Option      | Type                            | Default | Description                                      |
 |-------------|---------------------------------|---------|--------------------------------------------------|
 | `code`      | `string`                        | —       | Required Typst source                            |
-| `format`    | `'png' \| 'jpeg' \| 'webp'`     | `'png'` | Output format                                    |
-| `quality`   | `number` (1–100)                | `100`   | JPEG/WebP quality                                |
-| `ppi`       | `number`                        | `192`   | Base resolution (192 is a good balance)          |
-| `scale`     | `number`                        | `1`     | Additional multiplier on top of ppi              |
+| `format`    | `'png' \| 'jpeg' \| 'webp' \| 'pdf'` | `'png'` | Output format                                    |
+| `quality`   | `number` (1–100)                | `100`   | JPEG/WebP quality (ignored for PDF)              |
+| `ppi`       | `number`                        | `192`   | Raster resolution (ignored for PDF)              |
+| `scale`     | `number`                        | `1`     | Additional multiplier (ignored for PDF)          |
 | `snippet`   | `boolean`                       | `false` | Crop tightly to content (great for equations)    |
 | `variables` | `Record<string, string \| number \| boolean>` | `{}` | Injected as `#sys.inputs.key`                     |
-| `backgroundColor` | `string`                  | —       | Flatten transparency onto this color             |
+| `backgroundColor` | `string`                  | —       | Flatten transparency (raster only)               |
 | `preamble`  | `string`                        | —       | Typst code prepended to every render             |
 
 ## Credits

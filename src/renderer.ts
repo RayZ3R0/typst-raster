@@ -35,10 +35,18 @@ export class Typst {
             code = `#set page(width: auto, height: auto, margin: 1cm)\n${code}`;
         }
 
-        // Handle variables injection
         const inputs: Record<string, string> = options.variables || {};
+        const format = options.format || 'png';
 
         try {
+            if (format === 'pdf') {
+                const pdf = compiler.pdf({
+                    mainFileContent: code,
+                    inputs: inputs,
+                });
+                return Buffer.from(pdf);
+            }
+
             const svg = compiler.svg({
                 mainFileContent: code,
                 inputs: inputs,
@@ -46,12 +54,11 @@ export class Typst {
 
             return await svgToBuffer(
                 svg,
-                options.format || 'png',
+                format,
                 options.ppi || 72,
                 options.backgroundColor
             );
         } catch (error: any) {
-            // Parse error message if possible
             const message = error.message || 'Unknown Typst error';
             throw new TypstRenderError(`Failed to render Typst code: ${message}`, error);
         }
