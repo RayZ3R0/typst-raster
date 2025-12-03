@@ -26,6 +26,11 @@ export class Typst {
         const compiler = await this.getCompiler();
 
         let code = options.code;
+
+        if (options.preamble) {
+            code = options.preamble + '\n' + code;
+        }
+
         if (options.snippet) {
             code = `#set page(width: auto, height: auto, margin: 1cm)\n${code}`;
         }
@@ -39,7 +44,12 @@ export class Typst {
                 inputs: inputs,
             });
 
-            return await svgToBuffer(svg, options.format || 'png', options.ppi || 72);
+            return await svgToBuffer(
+                svg,
+                options.format || 'png',
+                options.ppi || 72,
+                options.backgroundColor
+            );
         } catch (error: any) {
             // Parse error message if possible
             const message = error.message || 'Unknown Typst error';

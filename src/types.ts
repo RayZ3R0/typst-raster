@@ -38,6 +38,20 @@ export interface RenderOptions {
      * Variables to pass to the Typst compiler.
      */
     variables?: Record<string, string>;
+
+    /**
+     * Background color to flatten transparent areas onto.
+     * Useful when image viewers don't handle transparency well.
+     * @example 'white', '#2b2d31', 'rgb(43, 45, 49)'
+     */
+    backgroundColor?: string;
+
+    /**
+     * Typst code to prepend to every render.
+     * Useful for setting up themes, page defaults, or text styling.
+     * @example '#set page(fill: rgb("#2b2d31"))\n#set text(fill: white)'
+     */
+    preamble?: string;
 }
 
 export interface TypstOptions {

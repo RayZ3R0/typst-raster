@@ -66,6 +66,31 @@ const buffer = await renderer.render({
 });
 ```
 
+### Flatten transparent backgrounds
+
+```typescript
+const buffer = await renderer.render({
+  code: '$ E = m c^2 $',
+  snippet: true,
+  backgroundColor: 'white',
+});
+```
+
+### Use preamble for theming
+
+```typescript
+const myTheme = `
+#set page(fill: rgb("#2b2d31"), margin: 1cm)
+#set text(fill: white, font: "Roboto")
+`;
+
+const buffer = await renderer.render({
+  preamble: myTheme,
+  code: '$ sum_(k=1)^n k = (n(n+1))/2 $',
+  snippet: true,
+});
+```
+
 ## API
 
 ```ts
@@ -81,12 +106,14 @@ renderer.render(options): Promise<Buffer>
 | Option      | Type                            | Default | Description                                      |
 |-------------|---------------------------------|---------|--------------------------------------------------|
 | `code`      | `string`                        | —       | Required Typst source                            |
-| `format`    | `'png' \| 'jpeg' \| 'webp'`webp   | `'png'` | Output format                                    |
+| `format`    | `'png' \| 'jpeg' \| 'webp'`     | `'png'` | Output format                                    |
 | `quality`   | `number` (1–100)                | `100`   | JPEG/WebP quality                                |
 | `ppi`       | `number`                        | `192`   | Base resolution (192 is a good balance)          |
-| `scale`     | `number`                        | `1`     | Additional multiplier on top of ppi                |
+| `scale`     | `number`                        | `1`     | Additional multiplier on top of ppi              |
 | `snippet`   | `boolean`                       | `false` | Crop tightly to content (great for equations)    |
 | `variables` | `Record<string, string \| number \| boolean>` | `{}` | Injected as `#sys.inputs.key`                     |
+| `backgroundColor` | `string`                  | —       | Flatten transparency onto this color             |
+| `preamble`  | `string`                        | —       | Typst code prepended to every render             |
 
 ## Credits
 
