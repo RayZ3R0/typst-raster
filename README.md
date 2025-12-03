@@ -20,6 +20,32 @@ Comes with New Computer Modern fonts bundled, works out of the box on Lambda, Ve
 - Variable injection, custom font paths, quality/scale control  
 - Tiny bundle size, no heavyweight dependencies  
 
+## Comparison with Alternatives
+
+`typst-raster` offers a lightweight, all-in-one solution for rendering documents and equations, avoiding the complexity of installing system-level dependencies.
+
+| Feature | **typst-raster** | **System LaTeX** (node-latex) | **MathJax** (mathjax-node) | **Puppeteer** (Headless Chrome) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Engine** | Native Rust (Node Bindings) | System Binary (pdflatex) | JavaScript | Chromium Browser |
+| **Prerequisites** | **None** (npm install only) | **Heavy** (Requires TeXLive) | None | Chromium Binary |
+| **Install Size** | **~19.3 MB** | **2GB - 4GB** | ~50 MB | ~280 MB+ |
+| **Speed** | Fast (Native compilation) | Slow (Spawns process) | Medium | Very Slow (Browser startup) |
+| **Output** | PDF, PNG, JPEG, SVG | PDF only | SVG/HTML only | PDF, PNG |
+| **Serverless**| ✅ Ready (Fonts included) | ❌ Difficult (Too large) | ✅ Ready | ⚠️ Hard (High RAM usage) |
+| **Scope** | Full Documents + Math | Full Documents + Math | Math Equations Only | Webpages |
+
+### Why choose typst-raster?
+
+**1. No external dependencies required**
+Running standard LaTeX wrappers in Node.js usually requires installing a full TeX distribution (like TeXLive) on the host machine. This is often impossible on managed hosting platforms like Vercel or standard shared hosting. This package runs entirely within Node.js with no external requirements.
+
+**2. Solves the missing font issue**
+Generating PDFs or images on cloud functions (AWS Lambda, Google Cloud) often results in broken text because the environments lack standard fonts. This package bundles high-quality fonts internally, ensuring documents render correctly on any server without manual configuration.
+
+**3. Direct conversion to multiple formats**
+Most alternatives specialize in one output format. LaTeX tools output PDF; MathJax outputs SVG. `typst-raster` handles the full pipeline internally, allowing you to generate PDFs for reports or PNGs for web previews using a single library. This removes the need for additional conversion tools like ImageMagick.
+
+
 ## Installation
 
 ```bash
