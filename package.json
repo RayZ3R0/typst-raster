@@ -1,0 +1,48 @@
+{
+  "name": "typst-raster",
+  "version": "1.0.0",
+  "description": "Blazing-fast Typst → PNG/JPEG/WebP renderer for Node.js using native Rust compiler + Sharp",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --external @myriaddreamin/typst-ts-node-compiler",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "typst",
+    "render",
+    "png",
+    "math",
+    "equations",
+    "latex",
+    "server-side",
+    "raster",
+    "svg"
+  ],
+  "author": "RayZ3R0",
+  "license": "AGPL-3.0",
+  "type": "commonjs",
+  "dependencies": {
+    "@myriaddreamin/typst-ts-node-compiler": "^0.7.0-rc1",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}
