@@ -1,6 +1,6 @@
 {
   "name": "typst-raster",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Blazing-fast Typst → PNG/JPEG/WebP renderer for Node.js using native Rust compiler + Sharp",
   "keywords": [
     "typst",
@@ -18,7 +18,10 @@
   "homepage": "https://github.com/RayZ3R0/typst-raster#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RayZ3R0/typst-raster.git"
+    "url": "https://github.com/RayZ3R0/typst-raster.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": "https://github.com/RayZ3R0/typst-raster/issues",
   "type": "commonjs",

@@ -1,9 +1,7 @@
 name: Release
-
 on:
   push:
     branches: [ main ]
-
 jobs:
   release:
     name: Release
@@ -12,20 +10,20 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-      id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run Tests
+        run: npm test
 
       - name: Build
         run: npm run build
