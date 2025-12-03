@@ -30,7 +30,7 @@ Comes with New Computer Modern fonts bundled, works out of the box on Lambda, Ve
 | **Prerequisites** | **None** (npm install only) | **Heavy** (Requires TeXLive) | None | Chromium Binary |
 | **Install Size** | **~19.3 MB** | **2GB - 4GB** | ~50 MB | ~280 MB+ |
 | **Speed** | Fast (Native compilation) | Slow (Spawns process) | Medium | Very Slow (Browser startup) |
-| **Output** | PDF, PNG, JPEG, SVG | PDF only | SVG/HTML only | PDF, PNG |
+| **Output** | PDF, PNG, JPEG, SVG, WEBP | PDF only | SVG/HTML only | PDF, PNG |
 | **Serverless**| ✅ Ready (Fonts included) | ❌ Difficult (Too large) | ✅ Ready | ⚠️ Hard (High RAM usage) |
 | **Scope** | Full Documents + Math | Full Documents + Math | Math Equations Only | Webpages |
 
