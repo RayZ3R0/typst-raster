@@ -14,7 +14,7 @@
     "svg"
   ],
   "author": "RayZ3R0",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "homepage": "https://github.com/RayZ3R0/typst-raster#readme",
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --external @myriaddreamin/typst-ts-node-compiler",

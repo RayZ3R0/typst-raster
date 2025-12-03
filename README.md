@@ -1,8 +1,8 @@
 # typst-raster
 
 [![npm](https://img.shields.io/npm/v/typst-raster.svg)](https://www.npmjs.com/package/typst-raster)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![CI](https://github.com/RayZ3R0/typst-raster/actions/workflows/test.yml/badge.svg)](https://github.com/RayZ3R0/typst-raster/actions/workflows/test.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml/badge.svg)](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml)
 
 A fast, no-nonsense Node.js library for rendering Typst to PNG, JPEG, or WebP images.
 
@@ -99,4 +99,4 @@ Huge thanks to the projects this wouldn't exist without:
 
 ## License
 
-AGPL-3.0 © 2025 RayZ3R0
+MIT © 2025 RayZ3R0
