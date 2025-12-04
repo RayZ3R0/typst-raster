@@ -35,7 +35,13 @@ export class Typst {
             code = `#set page(width: auto, height: auto, margin: 1cm)\n${code}`;
         }
 
-        const inputs: Record<string, string> = options.variables || {};
+        const inputs: Record<string, string> = {};
+        if (options.variables) {
+            for (const [key, value] of Object.entries(options.variables)) {
+                inputs[key] = String(value);
+            }
+        }
+
         const format = options.format || 'png';
 
         try {
@@ -55,10 +61,13 @@ export class Typst {
             return await svgToBuffer(
                 svg,
                 format,
-                options.ppi || 72,
+                options.ppi || 192,
+                options.scale,
+                options.quality,
                 options.backgroundColor
             );
         } catch (error: any) {
+            this.compiler = null; // Reset compiler on error to recover from potential state corruption
             const message = error.message || 'Unknown Typst error';
             throw new TypstRenderError(`Failed to render Typst code: ${message}`, error);
         }

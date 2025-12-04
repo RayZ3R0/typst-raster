@@ -159,6 +159,22 @@ renderer.render(options): Promise<Buffer>
 | `backgroundColor` | `string`                  | —       | Flatten transparency (raster only)               |
 | `preamble`  | `string`                        | —       | Typst code prepended to every render             |
 
+## Error Handling
+
+The library exports a `TypstRenderError` class that you can catch to handle rendering failures specifically.
+
+```typescript
+import { Typst, TypstRenderError } from 'typst-raster';
+
+try {
+  await renderer.render({ code: '#invalid()' });
+} catch (error) {
+  if (error instanceof TypstRenderError) {
+    console.error('Typst compilation failed:', error.message);
+  }
+}
+```
+
 ## Credits
 
 Huge thanks to the projects this wouldn't exist without:

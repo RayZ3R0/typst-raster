@@ -8,3 +8,4 @@
 
 export { Typst } from './renderer';
 export * from './types';
+export { TypstRenderError } from './errors';
