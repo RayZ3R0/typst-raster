@@ -72,4 +72,11 @@ describe('Typst Renderer', () => {
         });
         expect(buffer).toBeInstanceOf(Buffer);
     });
+
+    it('should throw error on invalid scale', async () => {
+        await expect(renderer.render({
+            code: 'test',
+            scale: 0
+        })).rejects.toThrow('Scale must be a positive finite number');
+    });
 });

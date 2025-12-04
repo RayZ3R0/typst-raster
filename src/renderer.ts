@@ -7,6 +7,7 @@ import { TypstRenderError } from './errors';
 export class Typst {
     private compiler: NodeCompiler | null = null;
     private fontPath: string | undefined;
+    private renderQueue: Promise<any> = Promise.resolve();
 
     constructor(options: TypstOptions = {}) {
         this.fontPath = options.fontPath;
@@ -23,6 +24,11 @@ export class Typst {
     }
 
     async render(options: RenderOptions): Promise<Buffer> {
+        // Queue renders to prevent concurrent access to the compiler
+        return this.renderQueue = this.renderQueue.then(() => this.executeRender(options), () => this.executeRender(options));
+    }
+
+    private async executeRender(options: RenderOptions): Promise<Buffer> {
         const compiler = await this.getCompiler();
 
         let code = options.code;
@@ -43,6 +49,13 @@ export class Typst {
         }
 
         const format = options.format || 'png';
+        const scale = options.scale ?? 1;
+        const qualityRaw = options.quality ?? 100;
+        const quality = Math.min(Math.max(isNaN(qualityRaw) ? 100 : qualityRaw, 1), 100);
+
+        if (scale <= 0 || isNaN(scale) || !isFinite(scale)) {
+            throw new TypstRenderError('Scale must be a positive finite number');
+        }
 
         try {
             if (format === 'pdf') {
@@ -62,8 +75,8 @@ export class Typst {
                 svg,
                 format,
                 options.ppi || 192,
-                options.scale,
-                options.quality,
+                scale,
+                quality,
                 options.backgroundColor
             );
         } catch (error: any) {
