@@ -9,3 +9,5 @@
 export { Typst } from './renderer';
 export * from './types';
 export { TypstRenderError } from './errors';
+export { getMetadata } from './metadata';
+export type { ImageMetadata } from './metadata';

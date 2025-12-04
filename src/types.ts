@@ -8,7 +8,7 @@ export interface RenderOptions {
      * Output format.
      * @default 'png'
      */
-    format?: 'png' | 'jpeg' | 'webp' | 'pdf';
+    format?: 'png' | 'jpeg' | 'webp' | 'pdf' | 'svg';
 
     /**
      * Quality of the output image (1-100).
@@ -60,4 +60,16 @@ export interface TypstOptions {
      * If not provided, the library will use its bundled font.
      */
     fontPath?: string;
+
+    /**
+     * Enable render caching.
+     * @default true
+     */
+    cache?: boolean;
+
+    /**
+     * Maximum number of cached renders.
+     * @default 100
+     */
+    cacheSize?: number;
 }
