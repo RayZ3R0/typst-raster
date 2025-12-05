@@ -41,7 +41,7 @@ Comes with New Computer Modern fonts bundled, works out of the box on Lambda, Ve
 | :--- | :--- | :--- | :--- | :--- |
 | **Engine** | Native Rust (Node Bindings) | System Binary (pdflatex) | JavaScript | Chromium Browser |
 | **Prerequisites** | **None** (npm install only) | **Heavy** (Requires TeXLive) | None | Chromium Binary |
-| **Install Size** | **~19.3 MB** | **2GB - 4GB** | ~50 MB | ~280 MB+ |
+| **Install Size** | **~8.9 MB** | **2GB - 4GB** | ~50 MB | ~280 MB+ |
 | **Speed** | Fast (Native compilation) | Slow (Spawns process) | Medium | Very Slow (Browser startup) |
 | **Output** | PDF, PNG, JPEG, SVG, WEBP | PDF only | SVG/HTML only | PDF, PNG |
 | **Serverless**| ✅ Ready (Fonts included) | ❌ Difficult (Too large) | ✅ Ready | ⚠️ Hard (High RAM usage) |
