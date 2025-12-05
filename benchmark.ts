@@ -101,7 +101,7 @@ async function benchmark() {
 
 = Mathematics
 
-$ integral_0^infinity e^(-x^2) dx = sqrt(pi)/2 $
+$ integral_0^infinity e^(-x^2) dif x = sqrt(pi)/2 $
 
 $ sum_(n=1)^infinity 1/n^2 = pi^2/6 $
 
