@@ -3,10 +3,11 @@
 [![npm](https://img.shields.io/npm/v/typst-raster.svg)](https://www.npmjs.com/package/typst-raster)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml/badge.svg)](https://github.com/RayZ3R0/typst-raster/actions/workflows/release.yml)
+[![Documentation](https://img.shields.io/badge/docs-typst--raster-blue)](https://typst-raster.vercel.app/)
 
 <div align="center">
   <img src="https://i.imgur.com/oHWvW1f.png" alt="typst-raster showcase" width="100%">
-  <p><i>This entire showcase was generated with Typst – <a href="https://github.com/RayZ3R0/typst-raster/blob/main/examples/side-by-side.ts">view the code</a></i></p>
+  <p><i>This entire showcase image was generated with Typst – <a href="https://github.com/RayZ3R0/typst-raster/blob/main/examples/side-by-side.ts">view the code</a></i></p>
 </div>
 
 ---
@@ -212,6 +213,8 @@ const renderer = new Typst({ cacheSize: 500 }); // default: 100
 ```
 
 ## API
+
+For more details, visit the [Documentation Site](https://typst-raster.vercel.app/).
 
 ```ts
 new Typst(options?: {
